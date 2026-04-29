@@ -5,7 +5,7 @@ import { ProductJourneyWindow } from "@/components/sections/ProductJourneyWindow
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-16 pb-24 px-6 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 overflow-hidden">
       {/* Background grid */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -33,7 +33,7 @@ export function Hero() {
         >
           <div className="w-1.5 h-1.5 rounded-full bg-[#7BA3FF] animate-pulse" />
           <span className="text-[11px] font-semibold tracking-widest uppercase text-[#7BA3FF]">
-            Event Pipeline Intelligence
+            PREDICT Event AI
           </span>
         </motion.div>
 
@@ -56,10 +56,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
-          className="text-[18px] md:text-[20px] text-[#8994A7] leading-relaxed max-w-2xl mx-auto mb-10"
+          className="text-[18px] md:text-[20px] text-[#8994A7] leading-relaxed max-w-3xl mx-auto mb-10"
         >
-          PREDICT hilft B2B-Teams, vor dem Event die richtigen Accounts zu identifizieren,
-          Meetings zu buchen und nach dem Event messbaren ROI zu erzeugen.
+          B2B-Unternehmen nutzen Event AI, um relevante Accounts zu identifizieren,
+          Termine zu buchen und Events in messbare Pipeline zu verwandeln.
+          <br />
+          — noch bevor die Messe startet.
         </motion.p>
 
         {/* CTAs */}
@@ -67,13 +69,13 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.48 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3"
         >
           <a
             href="#"
             className="group flex items-center gap-2 bg-[#0201FF] hover:bg-[#0101D4] text-white font-semibold text-[15px] rounded-xl px-6 py-3.5 transition-all duration-150 active:scale-[0.98] shadow-lg shadow-[#0201FF]/20"
           >
-            Event kostenlos bewerten
+            Event kostenlos prüfen
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 16 16">
               <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -90,15 +92,6 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* Trust micro-copy */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.6 }}
-          className="text-[13px] text-[#4D5666]"
-        >
-          Für B2B-Teams mit erklärungsbedürftigen Lösungen und Events als aktivem Vertriebskanal.
-        </motion.p>
       </div>
 
       {/* Product journey window */}
@@ -106,7 +99,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-6xl mx-auto mt-8"
+        className="relative z-10 w-full max-w-6xl mx-auto mt-16"
       >
         <ProductJourneyWindow />
       </motion.div>

@@ -39,8 +39,8 @@ body {
 }
 
 ::selection {
-  background: var(--accent-glow);
-  color: var(--accent);
+  background: rgba(85, 128, 255, 0.28);
+  color: var(--text-primary);
 }
 
 /* Logo marquee */

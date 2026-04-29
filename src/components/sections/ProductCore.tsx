@@ -565,7 +565,7 @@ export function ProductCore() {
         className="absolute right-6 top-8 text-[160px] font-black leading-none select-none pointer-events-none"
         style={{ color: 'rgba(30, 37, 48, 0.6)', letterSpacing: '-0.04em' }}
       >
-        03
+        02
       </div>
       {/* Background grid — matches Hero */}
       <div

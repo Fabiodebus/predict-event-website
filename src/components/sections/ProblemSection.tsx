@@ -5,68 +5,28 @@ import { useRef } from "react";
 
 const PROBLEMS = [
   {
-    icon: (
-      <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
-        <path d="M10 3V10L14 14" stroke="#E85050" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="10" cy="10" r="8" stroke="#E85050" strokeWidth="1.5"/>
-      </svg>
-    ),
-    title: "Zu spät gestartet",
-    desc: "Die Pipeline-Arbeit beginnt erst, wenn das Event schon läuft — oder vorbei ist.",
+    title: "Pipeline-Arbeit startet erst auf der Messe",
+    desc: "Zu spät. Zu wenig Kontext. Zu wenig Kontrolle.",
   },
   {
-    icon: (
-      <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
-        <path d="M4 10H16M4 6H10M4 14H8" stroke="#E8A84A" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="15" cy="14" r="3" stroke="#E8A84A" strokeWidth="1.5"/>
-        <path d="M15 13V15M15 16V16.01" stroke="#E8A84A" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-    title: "Keine klare Zielaccount-Liste",
-    desc: "Wer soll angesprochen werden? Teams fahren ohne Priorisierung, ohne ICP-Fit.",
+    title: "Keine klaren Ziel-Unternehmen",
+    desc: "Wer ist wirklich anwesend und relevant? Niemand weiß es genau.",
   },
   {
-    icon: (
-      <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
-        <rect x="3" y="4" width="14" height="12" rx="2" stroke="#E85050" strokeWidth="1.5"/>
-        <path d="M7 9L9 11L13 7" stroke="#E85050" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M3 8H17" stroke="#E85050" strokeWidth="1.5"/>
-      </svg>
-    ),
-    title: "Zu wenige gebuchte Meetings",
-    desc: "Gespräche entstehen durch Zufall statt durch Vorbereitung — der Messestand wartet.",
+    title: "Leere Kalender",
+    desc: "Gespräche entstehen vor Ort durch Zufall — nicht durch Planung.",
   },
   {
-    icon: (
-      <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
-        <path d="M10 3L17 16H3L10 3Z" stroke="#E8A84A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M10 9V12" stroke="#E8A84A" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="10" cy="14.5" r="0.5" fill="#E8A84A" stroke="#E8A84A"/>
-      </svg>
-    ),
-    title: "Kein messbarer ROI",
-    desc: "Wie viel Pipeline kam aus diesem Event? Niemand weiß es — Budget für nächstes Jahr unsicher.",
+    title: "Kein klarer ROI",
+    desc: "Wie viel qualifizierte Pipeline und Umsatz kam aus diesem Event? Unklar.",
   },
   {
-    icon: (
-      <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
-        <path d="M7 3H13M5 7H15M3 11H17" stroke="#4D5666" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M5 15H15" stroke="#4D5666" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2"/>
-      </svg>
-    ),
-    title: "Schwaches Follow-up",
-    desc: "Visitenkarten verschwinden im Stapel. Follow-ups kommen zu spät oder gar nicht.",
+    title: "Visitenkarten statt Pipeline",
+    desc: "Kontakte werden gesammelt, aber nicht in echte Pipeline konvertiert.",
   },
   {
-    icon: (
-      <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
-        <circle cx="8" cy="8" r="5" stroke="#4D5666" strokeWidth="1.5"/>
-        <path d="M13 13L17 17" stroke="#4D5666" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M6 8H10M8 6V10" stroke="#4D5666" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-    title: "Sales und Marketing nicht aligned",
-    desc: "Field Marketing plant den Stand. Sales weiß nicht, welche Accounts priorisiert werden sollen.",
+    title: "Sales & Marketing arbeiten aneinander vorbei",
+    desc: "Keine gemeinsame Priorisierung. Keine klare Strategie vor, während und nach dem Event.",
   },
 ];
 
@@ -75,18 +35,18 @@ export function ProblemSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="relative py-24 px-6 overflow-hidden">
+    <section ref={ref} className="relative py-20 px-6 overflow-hidden">
       {/* Decorative section number */}
       <div
         aria-hidden="true"
         className="absolute right-6 top-8 text-[160px] font-black leading-none select-none pointer-events-none"
-        style={{ color: 'rgba(30, 37, 48, 0.6)', letterSpacing: '-0.04em' }}
+        style={{ color: "rgba(30, 37, 48, 0.6)", letterSpacing: "-0.04em" }}
       >
         01
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Section label */}
+      <div className="relative z-10 max-w-4xl mx-auto">
+        {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -101,48 +61,82 @@ export function ProblemSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="text-[36px] md:text-[44px] lg:text-[48px] font-bold leading-[1.08] tracking-[-0.025em] text-[#EEF2F7] mb-6 max-w-3xl"
+          className="text-[34px] md:text-[42px] lg:text-[48px] font-bold leading-[1.1] tracking-[-0.025em] text-[#EEF2F7] mb-6 max-w-3xl"
         >
-          Die meisten Events werden zu spät verkauft
+          Messen & Events werden jedes Jahr teurer, die Resultate jedoch oft dem Zufall überlassen.
         </motion.h2>
 
+        {/* Subhead */}
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="text-[16px] md:text-[17px] text-[#8994A7] leading-relaxed max-w-2xl mb-12"
+          className="text-[16px] md:text-[17px] text-[#8994A7] leading-relaxed max-w-2xl mb-10"
         >
-          Viele B2B-Teams investieren erhebliches Budget in Messen und Konferenzen.
-          Aber die eigentliche Pipeline-Arbeit beginnt oft erst, wenn das Event schon läuft oder vorbei ist.
+          Viele B2B-Unternehmen investieren 5- bis 6-stellige Beträge pro Event —
+          ohne zu wissen, ob daraus tatsächlich Pipeline und Umsatz entsteht.
         </motion.p>
 
-        {/* Problem grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Editorial problem index */}
+        <div className="border-t border-[#1E2530]">
           {PROBLEMS.map((prob, i) => (
             <motion.div
               key={prob.title}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.1 + i * 0.07 }}
-              className="rounded-xl border border-[#1E2530] bg-[#0F1318] p-5 hover:border-[#2E3540] transition-colors duration-200"
+              transition={{ duration: 0.4, delay: 0.15 + i * 0.06 }}
+              className="grid grid-cols-[auto_1fr] gap-x-8 md:gap-x-14 py-5 md:py-6 border-b border-[#1E2530] group"
             >
-              <div className="mb-3">{prob.icon}</div>
-              <h3 className="text-[14px] font-semibold text-[#EEF2F7] mb-1.5">{prob.title}</h3>
-              <p className="text-[13px] text-[#8994A7] leading-relaxed">{prob.desc}</p>
+              <span className="text-[13px] md:text-[14px] font-medium tabular-nums tracking-[0.08em] text-[#4D5666] pt-1.5 group-hover:text-[#7BA3FF] transition-colors duration-200">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <h3 className="text-[20px] md:text-[24px] font-semibold leading-[1.25] tracking-[-0.01em] text-[#EEF2F7] mb-2">
+                  {prob.title}
+                </h3>
+                <p className="text-[15px] md:text-[16px] text-[#8994A7] leading-relaxed max-w-2xl">
+                  {prob.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Key line */}
+        {/* Felt-reality split quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.55 }}
+          className="relative mt-14 py-12 border-y border-[#1E2530]"
+        >
+          <p className="text-[9px] font-semibold tracking-[0.25em] uppercase text-[#4D5666] mb-6 text-center">
+            Die gefühlte Wahrheit
+          </p>
+          <div className="grid grid-cols-2 max-w-3xl mx-auto relative">
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#1E2530]" />
+            <p className="text-[20px] md:text-[26px] lg:text-[30px] font-semibold leading-[1.3] tracking-[-0.015em] text-[#EEF2F7] pr-8 md:pr-10 text-right">
+              Mal gehen Sie<br />
+              mit neuen Kunden<br />
+              nach Hause.
+            </p>
+            <p className="text-[20px] md:text-[26px] lg:text-[30px] font-semibold leading-[1.3] tracking-[-0.015em] text-[#5D6675] pl-8 md:pl-10 text-left">
+              Mal mit einem<br />
+              Stapel irrelevanter<br />
+              Visitenkarten.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Closing — bare typography, no card */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.55 }}
-          className="mt-12 rounded-xl border border-[#1E2530] bg-[#0F1318] px-6 py-5 relative overflow-hidden"
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="relative mt-12 pl-6"
         >
-          <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-[#0201FF] to-transparent" />
-          <p className="text-[16px] md:text-[18px] text-[#EEF2F7] font-medium leading-relaxed pl-4">
-            Das Event ist selten das Problem.{" "}
+          <div className="absolute left-0 top-1 bottom-1 w-px bg-gradient-to-b from-transparent via-[#0201FF] to-transparent" />
+          <p className="text-[20px] md:text-[26px] lg:text-[28px] font-medium leading-[1.35] tracking-[-0.01em] text-[#EEF2F7] max-w-3xl">
+            Das Problem ist nicht das Event.{" "}
             <span className="text-[#8994A7]">
               Das Problem ist, dass es nicht wie ein Pipeline-Kanal gesteuert wird.
             </span>
@@ -152,4 +146,3 @@ export function ProblemSection() {
     </section>
   );
 }
-

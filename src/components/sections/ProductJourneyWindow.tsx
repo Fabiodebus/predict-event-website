@@ -10,37 +10,37 @@ const STAGES = [
     id: "event",
     label: "Event hinzufügen",
     sidebarStatus: "Event wird analysiert...",
-    windowTitle: "PREDICT — Event hinzufügen",
+    windowTitle: "Event AI — Event hinzufügen",
   },
   {
     id: "accounts",
     label: "Accounts identifiziert",
-    sidebarStatus: "87 ICP-fit Accounts",
-    windowTitle: "PREDICT — Account Universe",
+    sidebarStatus: "139 ICP-fit Accounts",
+    windowTitle: "Event AI — Account Universe",
   },
   {
     id: "campaign",
-    label: "Campaign erstellt",
-    sidebarStatus: "87 Sequenzen generiert",
-    windowTitle: "PREDICT — Outreach Queue",
+    label: "Kampagne erstellt",
+    sidebarStatus: "139 Sequenzen generiert",
+    windowTitle: "Event AI — Outreach Queue",
   },
   {
     id: "replies",
     label: "Antworten kommen rein",
-    sidebarStatus: "18 Antworten · 24 Meetings",
-    windowTitle: "PREDICT — Inbox",
+    sidebarStatus: "24 Antworten · 18 Meetings",
+    windowTitle: "Event AI — Inbox",
   },
   {
     id: "calendar",
     label: "Kalender wird voll",
-    sidebarStatus: "24 Meetings bestätigt",
-    windowTitle: "PREDICT — Meeting Calendar",
+    sidebarStatus: "18 Meetings bestätigt",
+    windowTitle: "Event AI — Meeting Calendar",
   },
   {
     id: "roi",
     label: "ROI berechnet",
     sidebarStatus: "Event ROI: 5.8×",
-    windowTitle: "PREDICT — ROI Report",
+    windowTitle: "Event AI — ROI Report",
   },
 ];
 
@@ -102,9 +102,9 @@ function StageEvent() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#0201FF] animate-pulse" />
-              <span className="text-[12px] font-medium text-[#EEF2F7]">Hannover Messe 2025</span>
+              <span className="text-[12px] font-medium text-[#EEF2F7]">Hannover Messe 2026</span>
             </div>
-            <span className="text-[11px] text-[#4D5666]">12–16 Mai</span>
+            <span className="text-[11px] text-[#4D5666]">20.–24. April 2026</span>
           </div>
           <div>
             <div className="flex justify-between mb-1.5">
@@ -145,7 +145,7 @@ function StageAccounts() {
   return (
     <div className="p-4 space-y-2">
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[12px] font-semibold text-[#EEF2F7]">87 ICP-fit Accounts</span>
+        <span className="text-[12px] font-semibold text-[#EEF2F7]">139 ICP-fit Accounts</span>
         <span className="text-[11px] text-[#0201FF] font-medium">von 2.847 Ausstellern</span>
       </div>
 
@@ -193,7 +193,7 @@ function StageAccounts() {
 /* ─── Stage 2: Campaign erstellt ─── */
 function StageCampaign() {
   const [typed, setTyped] = useState("");
-  const body = "Hallo {{Vorname}}, ich habe gesehen, dass Siemens dieses Jahr auf der Hannover Messe ausstellt. Wir helfen B2B-Teams wie Ihrem, vor dem Event gezielt Meetings zu buchen...";
+  const body = "Hallo Herr Mayer, ich habe gesehen, Sie sind dieses Jahr wieder als Speaker zum Thema Industrie 4.0 auf der Hannover Messe. Wir arbeiten mit B2B-Teams wie Ihrem, um vor der Messe gezielt Termine zu buchen...";
 
   useEffect(() => {
     let i = 0;
@@ -204,14 +204,14 @@ function StageCampaign() {
       } else {
         clearInterval(t);
       }
-    }, 32);
+    }, 28);
     return () => clearInterval(t);
   }, []);
 
   return (
     <div className="p-4 space-y-3">
       <div className="flex items-center justify-between">
-        <span className="text-[11px] font-medium text-[#8994A7]">Sequenz 1 von 87 Accounts</span>
+        <span className="text-[11px] font-medium text-[#8994A7]">Sequenz 1 von 139 Accounts</span>
         <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#0201FF]/15 text-[#0201FF]">AI-generiert</span>
       </div>
       <div className="rounded-xl border border-[#1E2530] bg-[#080B10] overflow-hidden">
@@ -222,7 +222,7 @@ function StageCampaign() {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-[10px] text-[#4D5666] w-8">An:</span>
-            <span className="text-[11px] text-[#EEF2F7]">einkauf@siemens.com</span>
+            <span className="text-[11px] text-[#EEF2F7]">thomas.mayer@siemens.com</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-[10px] text-[#4D5666] w-8">Betr.:</span>
@@ -241,7 +241,7 @@ function StageCampaign() {
           <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1.2"/>
           <path d="M4 6l1.5 1.5L8 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-        87 personalisierte Sequenzen generiert · Versand ab morgen
+        139 personalisierte Sequenzen generiert · Versand ab morgen
       </div>
     </div>
   );
@@ -249,17 +249,17 @@ function StageCampaign() {
 
 /* ─── Stage 3: Antworten kommen rein ─── */
 const REPLIES = [
-  { name: "Thomas K.", company: "Siemens AG", text: "Ja gerne, wann passt Ihnen?", time: "14:23", positive: true },
-  { name: "Sarah M.", company: "KION Group", text: "Interessant! Können Sie mehr Details schicken?", time: "15:01", positive: true },
-  { name: "Jan W.", company: "Bosch Rexroth", text: "Leider kein Interesse.", time: "15:44", positive: false },
-  { name: "Petra L.", company: "Phoenix Contact", text: "Schicken Sie mir einen Calendly-Link.", time: "16:12", positive: true },
+  { name: "Thomas Mayer", company: "Siemens AG", text: "Termin am Mittwoch 11:00 gebucht — freue mich!", time: "14:23", positive: true, highlight: true },
+  { name: "Sarah M.", company: "KION Group", text: "Interessant! Können Sie mehr Details schicken?", time: "15:01", positive: true, highlight: false },
+  { name: "Jan W.", company: "Bosch Rexroth", text: "Leider kein Interesse.", time: "15:44", positive: false, highlight: false },
+  { name: "Petra L.", company: "Phoenix Contact", text: "Schicken Sie mir einen Calendly-Link.", time: "16:12", positive: true, highlight: false },
 ];
 
 function StageReplies() {
-  const [count, setCount] = useState(8);
+  const [count, setCount] = useState(11);
 
   useEffect(() => {
-    const targets = [12, 15, 18];
+    const targets = [16, 20, 24];
     let i = 0;
     const t = setInterval(() => {
       if (i < targets.length) {
@@ -293,10 +293,18 @@ function StageReplies() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: i * 0.1, duration: 0.35 }}
           className={`flex items-start gap-3 p-3 rounded-lg border ${
-            r.positive ? "border-[#0201FF]/20 bg-[#0201FF]/5" : "border-[#1E2530] bg-[#080B10]"
+            r.highlight
+              ? "border-[#0201FF]/45 bg-[#0201FF]/12 shadow-[0_0_24px_rgba(2,1,255,0.18)]"
+              : r.positive
+              ? "border-[#0201FF]/20 bg-[#0201FF]/5"
+              : "border-[#1E2530] bg-[#080B10]"
           }`}
         >
-          <div className="w-6 h-6 rounded-full bg-[#161B24] border border-[#1E2530] flex items-center justify-center flex-shrink-0 text-[10px] font-medium text-[#8994A7]">
+          <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-medium ${
+            r.highlight
+              ? "bg-[#0201FF]/20 border border-[#0201FF]/40 text-[#7BA3FF]"
+              : "bg-[#161B24] border border-[#1E2530] text-[#8994A7]"
+          }`}>
             {r.name[0]}
           </div>
           <div className="flex-1 min-w-0">
@@ -306,9 +314,16 @@ function StageReplies() {
             </div>
             <p className="text-[11px] text-[#8994A7] mt-0.5 truncate">{r.text}</p>
           </div>
-          {r.positive && (
+          {r.highlight ? (
+            <span className="flex items-center gap-1 text-[9px] font-semibold px-1.5 py-0.5 rounded-md bg-[#0201FF]/20 text-[#7BA3FF] flex-shrink-0 whitespace-nowrap">
+              <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 10 10">
+                <path d="M2 5l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              Termin gebucht
+            </span>
+          ) : r.positive ? (
             <div className="w-1.5 h-1.5 rounded-full bg-[#0201FF] flex-shrink-0 mt-1.5" />
-          )}
+          ) : null}
         </motion.div>
       ))}
     </div>
@@ -346,7 +361,7 @@ function StageCalendar() {
   return (
     <div className="p-4 space-y-3">
       <div className="flex items-center justify-between">
-        <span className="text-[11px] font-medium text-[#8994A7]">12–16 Mai · Hannover Messe</span>
+        <span className="text-[11px] font-medium text-[#8994A7]">20.–24. April · Hannover Messe</span>
         <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#E8A84A]/15 text-[#E8A84A]">
           ⚡ 4 Tage bis zur Messe
         </span>
@@ -395,7 +410,7 @@ function StageCalendar() {
           <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.3"/>
           <path d="M5 7l1.5 1.5L9 5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-        <span className="text-[11px] font-semibold text-[#0201FF]">24 Meetings bestätigt vor dem Event</span>
+        <span className="text-[11px] font-semibold text-[#0201FF]">18 Meetings bestätigt vor dem Event</span>
       </motion.div>
     </div>
   );
@@ -423,8 +438,8 @@ function StageROI() {
   const [started, setStarted] = useState(false);
   useEffect(() => { const t = setTimeout(() => setStarted(true), 100); return () => clearTimeout(t); }, []);
 
-  const accounts = useCountUp(87, 900, started);
-  const meetings = useCountUp(24, 1000, started);
+  const accounts = useCountUp(139, 900, started);
+  const meetings = useCountUp(18, 1000, started);
   const pipeline = useCountUp(420, 1100, started);
   const roi = useCountUp(58, 1200, started);
 
@@ -556,7 +571,7 @@ export function ProductJourneyWindow() {
         </div>
 
         {/* Two-panel layout */}
-        <div className="flex" style={{ minHeight: "280px" }}>
+        <div className="flex" style={{ minHeight: "380px" }}>
           {/* Sidebar */}
           <div className="w-[200px] flex-shrink-0 border-r border-[#1E2530] bg-[#080B10] py-4 px-3 space-y-1">
             {STAGES.map((stage, i) => {

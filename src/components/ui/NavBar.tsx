@@ -25,22 +25,23 @@ export function NavBar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-16 grid grid-cols-[1fr_auto_1fr] items-center gap-6">
         {/* Logo */}
-        <a href="/" className="flex items-center">
+        <a href="/" className="flex items-center justify-self-start">
           <Image
             src="/predict-logo.png"
             alt="PREDICT"
             width={148}
             height={38}
             priority
-            className="h-[38px] w-auto object-contain"
+            style={{ height: 38, width: "auto" }}
+            className="object-contain"
           />
         </a>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-7">
-          {["Produkt", "Lösungen", "Kunden", "Ressourcen", "Preise"].map((item) => (
+        {/* Desktop nav (truly centered) */}
+        <nav className="hidden md:flex items-center gap-7 justify-self-center">
+          {["Produkt", "Referenzen", "Ressourcen", "Team"].map((item) => (
             <a
               key={item}
               href="#"
@@ -52,7 +53,7 @@ export function NavBar() {
         </nav>
 
         {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-3 justify-self-end">
           <a
             href="#"
             className="text-[14px] text-[#8994A7] hover:text-[#EEF2F7] transition-colors duration-150 px-3 py-1.5"
@@ -69,7 +70,7 @@ export function NavBar() {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 text-[#8994A7]"
+          className="md:hidden p-2 text-[#8994A7] justify-self-end col-start-3"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu öffnen"
         >
@@ -95,7 +96,7 @@ export function NavBar() {
           className="md:hidden bg-[#080B10] border-b border-[#1E2530] px-6 pb-6"
         >
           <nav className="flex flex-col gap-4 pt-4">
-            {["Produkt", "Lösungen", "Kunden", "Ressourcen", "Preise"].map((item) => (
+            {["Produkt", "Referenzen", "Ressourcen", "Team"].map((item) => (
               <a key={item} href="#" className="text-[15px] text-[#8994A7]">
                 {item}
               </a>

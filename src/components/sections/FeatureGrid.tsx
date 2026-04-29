@@ -93,8 +93,16 @@ export function FeatureGrid() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section ref={ref} className="relative py-24 px-6 overflow-hidden">
+      {/* Decorative section number */}
+      <div
+        aria-hidden="true"
+        className="absolute right-6 top-8 text-[160px] font-black leading-none select-none pointer-events-none"
+        style={{ color: 'rgba(30, 37, 48, 0.6)', letterSpacing: '-0.04em' }}
+      >
+        05
+      </div>
+      <div className="relative z-10 max-w-6xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

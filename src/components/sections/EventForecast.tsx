@@ -29,15 +29,34 @@ export function EventForecast() {
   const result = calcForecast(eventCost, dealSize, meetingToOpp, winRate);
 
   return (
-    <section ref={ref} className="relative py-24 px-6 overflow-hidden">
+    <section ref={ref} className="relative py-24 px-6 bg-[#080B10] border-y border-[#1E2530] overflow-hidden">
       {/* Decorative section number */}
       <div
         aria-hidden="true"
         className="absolute right-6 top-8 text-[160px] font-black leading-none select-none pointer-events-none"
         style={{ color: 'rgba(30, 37, 48, 0.6)', letterSpacing: '-0.04em' }}
       >
-        05
+        04
       </div>
+      {/* Background grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(#1E2530 1px, transparent 1px), linear-gradient(90deg, #1E2530 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          opacity: 0.18,
+          maskImage: "radial-gradient(ellipse 100% 60% at 50% 0%, black 10%, transparent 100%)",
+          WebkitMaskImage: "radial-gradient(ellipse 100% 60% at 50% 0%, black 10%, transparent 100%)",
+        }}
+      />
+      {/* Ambient glow */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: [0, 0.09, 0.04] } : { opacity: 0 }}
+        transition={{ duration: 2.8, ease: "easeOut", times: [0, 0.4, 1] }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[320px] bg-[#0201FF] rounded-full blur-[100px] pointer-events-none"
+      />
       <div className="relative z-10 max-w-6xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 8 }}
@@ -189,7 +208,7 @@ export function EventForecast() {
                 href="#"
                 className="mt-auto w-full flex items-center justify-center gap-2 bg-[#0201FF] hover:bg-[#0101D4] text-white font-semibold text-[14px] rounded-xl px-4 py-3.5 transition-colors duration-150 shadow-lg shadow-[#0201FF]/20"
               >
-                Event kostenlos analysieren lassen
+                Jetzt Event-Potenzial kostenlos prüfen
                 <svg width="14" height="14" fill="none" viewBox="0 0 14 14">
                   <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>

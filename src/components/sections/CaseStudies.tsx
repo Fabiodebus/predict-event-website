@@ -50,8 +50,35 @@ export function CaseStudies() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-[#0F1318] border-y border-[#1E2530]">
-      <div className="max-w-6xl mx-auto">
+    <section ref={ref} className="relative py-24 px-6 bg-[#080B10] border-y border-[#1E2530] overflow-hidden">
+      {/* Decorative section number */}
+      <div
+        aria-hidden="true"
+        className="absolute right-6 top-8 text-[160px] font-black leading-none select-none pointer-events-none"
+        style={{ color: 'rgba(30, 37, 48, 0.6)', letterSpacing: '-0.04em' }}
+      >
+        06
+      </div>
+      {/* Background grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(#1E2530 1px, transparent 1px), linear-gradient(90deg, #1E2530 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          opacity: 0.18,
+          maskImage: "radial-gradient(ellipse 100% 60% at 50% 0%, black 10%, transparent 100%)",
+          WebkitMaskImage: "radial-gradient(ellipse 100% 60% at 50% 0%, black 10%, transparent 100%)",
+        }}
+      />
+      {/* Ambient glow */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: [0, 0.09, 0.04] } : { opacity: 0 }}
+        transition={{ duration: 2.8, ease: "easeOut", times: [0, 0.4, 1] }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[320px] bg-[#0201FF] rounded-full blur-[100px] pointer-events-none"
+      />
+      <div className="relative z-10 max-w-6xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

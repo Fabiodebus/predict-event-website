@@ -176,7 +176,7 @@ export function LifecycleSection() {
         className="absolute right-6 top-8 text-[160px] font-black leading-none select-none pointer-events-none"
         style={{ color: 'rgba(30, 37, 48, 0.6)', letterSpacing: '-0.04em' }}
       >
-        02
+        03
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto">
