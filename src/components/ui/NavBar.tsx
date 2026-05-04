@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { PopupButton } from "@typeform/embed-react";
+
+const TYPEFORM_ID = "m5mMGqEM";
 
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,13 +44,18 @@ export function NavBar() {
 
         {/* Desktop nav (truly centered) */}
         <nav className="hidden md:flex items-center gap-7 justify-self-center">
-          {["Produkt", "Referenzen", "Ressourcen", "Team"].map((item) => (
+          {[
+            { label: "Produkt", href: "/#produkt" },
+            { label: "Referenzen", href: "/referenzen" },
+            { label: "Ressourcen", href: "#" },
+            { label: "Team", href: "/team" },
+          ].map((item) => (
             <a
-              key={item}
-              href="#"
+              key={item.label}
+              href={item.href}
               className="text-[14px] text-[#8994A7] hover:text-[#EEF2F7] transition-colors duration-150"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </nav>
@@ -60,12 +68,12 @@ export function NavBar() {
           >
             Anmelden
           </a>
-          <a
-            href="#"
+          <PopupButton
+            id={TYPEFORM_ID}
             className="text-[13px] font-medium bg-[#0201FF] hover:bg-[#0101D4] text-white rounded-lg px-4 py-2 transition-colors duration-150"
           >
-            Demo ansehen
-          </a>
+            Demo buchen
+          </PopupButton>
         </div>
 
         {/* Mobile menu button */}
@@ -96,16 +104,30 @@ export function NavBar() {
           className="md:hidden bg-[#080B10] border-b border-[#1E2530] px-6 pb-6"
         >
           <nav className="flex flex-col gap-4 pt-4">
-            {["Produkt", "Referenzen", "Ressourcen", "Team"].map((item) => (
-              <a key={item} href="#" className="text-[15px] text-[#8994A7]">
-                {item}
+            {[
+              { label: "Produkt", href: "/#produkt" },
+              { label: "Referenzen", href: "/referenzen" },
+              { label: "Ressourcen", href: "#" },
+              { label: "Team", href: "/team" },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-[15px] text-[#8994A7]"
+              >
+                {item.label}
               </a>
             ))}
             <div className="pt-2 flex flex-col gap-3">
               <a href="#" className="text-[14px] text-[#8994A7]">Anmelden</a>
-              <a href="#" className="text-[14px] font-medium bg-[#0201FF] text-white rounded-lg px-4 py-2.5 text-center">
-                Demo ansehen
-              </a>
+              <PopupButton
+                id={TYPEFORM_ID}
+                onReady={() => setMenuOpen(false)}
+                className="text-[14px] font-medium bg-[#0201FF] text-white rounded-lg px-4 py-2.5 text-center w-full"
+              >
+                Demo buchen
+              </PopupButton>
             </div>
           </nav>
         </motion.div>

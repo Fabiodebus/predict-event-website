@@ -60,11 +60,6 @@ body {
   animation: marquee-right 45s linear infinite;
 }
 
-.marquee-wrapper:hover .marquee-track-left,
-.marquee-wrapper:hover .marquee-track-right {
-  animation-play-state: paused;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .marquee-track-left,
   .marquee-track-right {

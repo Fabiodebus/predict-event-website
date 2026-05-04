@@ -33,12 +33,12 @@ const ROW2 = LOGO_FILES.slice(13);
 
 function LogoItem({ file }: { file: string }) {
   return (
-    <div className="flex items-center justify-center h-16 px-7 mx-3 opacity-55 hover:opacity-95 transition-opacity duration-200 select-none">
+    <div className="flex items-center justify-center h-12 px-6 mx-2 opacity-55 select-none">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`/logos/${encodeURIComponent(file)}`}
         alt=""
-        className="h-11 w-auto max-w-[200px]"
+        className="h-8 w-auto max-w-[160px]"
         style={{ filter: "brightness(0) invert(1)" }}
       />
     </div>
@@ -47,7 +47,7 @@ function LogoItem({ file }: { file: string }) {
 
 export function LogoMarquee() {
   return (
-    <section className="py-12 border-y border-[#1E2530] overflow-hidden marquee-wrapper">
+    <section className="py-10 border-y border-[#1E2530] overflow-hidden">
       <div className="text-center mb-10">
         <p className="text-[12px] font-semibold tracking-widest uppercase text-[#4D5666]">
           Vertraut von modernen B2B-Teams, die Events messbar machen wollen

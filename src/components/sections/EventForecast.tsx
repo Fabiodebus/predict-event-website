@@ -2,6 +2,9 @@
 
 import { useState, useRef, useCallback } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import { PopupButton } from "@typeform/embed-react";
+
+const TYPEFORM_ID = "m5mMGqEM";
 
 function formatEuro(n: number) {
   return "€" + Math.round(n).toLocaleString("de-DE");
@@ -204,15 +207,15 @@ export function EventForecast() {
                 ))}
               </div>
 
-              <a
-                href="#"
+              <PopupButton
+                id={TYPEFORM_ID}
                 className="mt-auto w-full flex items-center justify-center gap-2 bg-[#0201FF] hover:bg-[#0101D4] text-white font-semibold text-[14px] rounded-xl px-4 py-3.5 transition-colors duration-150 shadow-lg shadow-[#0201FF]/20"
               >
                 Jetzt Event-Potenzial kostenlos prüfen
                 <svg width="14" height="14" fill="none" viewBox="0 0 14 14">
                   <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </a>
+              </PopupButton>
             </div>
           </div>
         </motion.div>

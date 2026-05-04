@@ -2,6 +2,9 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { PopupButton } from "@typeform/embed-react";
+
+const TYPEFORM_ID = "m5mMGqEM";
 
 export function FinalCTA() {
   const ref = useRef(null);
@@ -50,25 +53,25 @@ export function FinalCTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="#"
+            <PopupButton
+              id={TYPEFORM_ID}
               className="group flex items-center gap-2 bg-[#0201FF] hover:bg-[#0101D4] text-white font-semibold text-[15px] rounded-xl px-7 py-4 transition-all duration-150 active:scale-[0.98] shadow-lg shadow-[#0201FF]/25"
             >
-              Event kostenlos bewerten
+              Event kostenlos prüfen
               <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 16 16">
                 <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </a>
-            <a
-              href="#"
+            </PopupButton>
+            <PopupButton
+              id={TYPEFORM_ID}
               className="flex items-center gap-2 border border-[#1E2530] hover:border-[#2E3540] text-[#EEF2F7] font-medium text-[15px] rounded-xl px-7 py-4 transition-all duration-150"
             >
               Demo buchen
-            </a>
+            </PopupButton>
           </div>
 
           <p className="text-[12px] text-[#4D5666] mt-5">
-            Kein Commitment. Kein Credit Card. Erste Einschätzung innerhalb von 24 Stunden.
+            Kein Commitment. Erste Einschätzung innerhalb von 24 Stunden.
           </p>
         </div>
       </motion.div>

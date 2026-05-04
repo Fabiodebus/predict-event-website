@@ -558,7 +558,7 @@ export function ProductCore() {
   const ActiveIcon = active.icon;
 
   return (
-    <section ref={ref} className="relative py-24 px-6 bg-[#080B10] border-y border-[#1E2530] overflow-hidden">
+    <section ref={ref} id="produkt" className="relative py-24 px-6 bg-[#080B10] border-y border-[#1E2530] overflow-hidden scroll-mt-20">
       {/* Decorative section number */}
       <div
         aria-hidden="true"

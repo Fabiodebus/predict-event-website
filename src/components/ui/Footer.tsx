@@ -1,22 +1,34 @@
 import Image from "next/image";
 
 export function Footer() {
-  const COLUMNS = [
+  const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
     {
       title: "Produkt",
-      links: ["Event Forecast", "Account Universe", "Outreach", "Meeting Calendar", "ROI Report"],
-    },
-    {
-      title: "Lösungen",
-      links: ["Field Marketing", "Sales & Business Development", "Leadership", "B2B SaaS", "Mittelstand"],
+      links: [
+        { label: "Event Forecast", href: "/#produkt" },
+        { label: "Account Universe", href: "/#produkt" },
+        { label: "Outreach", href: "/#produkt" },
+        { label: "Meeting Calendar", href: "/#produkt" },
+        { label: "ROI Report", href: "/#produkt" },
+      ],
     },
     {
       title: "Ressourcen",
-      links: ["Case Studies", "Event ROI Calculator", "Messe Pipeline Checklist", "Event Outreach Guide"],
+      links: [
+        { label: "Referenzen", href: "/referenzen" },
+        { label: "Event ROI Calculator", href: "#" },
+        { label: "Messe Pipeline Checklist", href: "#" },
+        { label: "Event Outreach Guide", href: "#" },
+      ],
     },
     {
       title: "Unternehmen",
-      links: ["Über PREDICT", "Kontakt", "Datenschutz", "Impressum"],
+      links: [
+        { label: "Team", href: "/team" },
+        { label: "Referenzen", href: "/referenzen" },
+        { label: "Datenschutz", href: "#" },
+        { label: "Impressum", href: "#" },
+      ],
     },
   ];
 
@@ -59,12 +71,12 @@ export function Footer() {
               </p>
               <ul className="space-y-3">
                 {col.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="text-[13px] text-[#8994A7] hover:text-[#EEF2F7] transition-colors duration-150"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -76,7 +88,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-7 border-t border-[#1E2530]">
           <p className="text-[12px] text-[#4D5666]">
-            © 2025 PREDICT GmbH. Alle Rechte vorbehalten.
+            © 2026 PREDICT PA GmbH. Alle Rechte vorbehalten.
           </p>
           <div className="flex items-center gap-5">
             {["Datenschutz", "Impressum", "AGB"].map((item) => (

@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PopupButton } from "@typeform/embed-react";
 import { ProductJourneyWindow } from "@/components/sections/ProductJourneyWindow";
+
+const TYPEFORM_ID = "m5mMGqEM";
 
 export function Hero() {
   return (
@@ -71,15 +74,15 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.48 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3"
         >
-          <a
-            href="#"
+          <PopupButton
+            id={TYPEFORM_ID}
             className="group flex items-center gap-2 bg-[#0201FF] hover:bg-[#0101D4] text-white font-semibold text-[15px] rounded-xl px-6 py-3.5 transition-all duration-150 active:scale-[0.98] shadow-lg shadow-[#0201FF]/20"
           >
             Event kostenlos prüfen
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 16 16">
               <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-          </a>
+          </PopupButton>
           <a
             href="#"
             className="flex items-center gap-2 border border-[#1E2530] hover:border-[#2E3540] text-[#EEF2F7] font-medium text-[15px] rounded-xl px-6 py-3.5 transition-all duration-150 bg-[#0F1318]/60 hover:bg-[#0F1318]"
