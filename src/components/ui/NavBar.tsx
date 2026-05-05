@@ -62,12 +62,6 @@ export function NavBar() {
 
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-3 justify-self-end">
-          <a
-            href="#"
-            className="text-[14px] text-[#8994A7] hover:text-[#EEF2F7] transition-colors duration-150 px-3 py-1.5"
-          >
-            Anmelden
-          </a>
           <PopupButton
             id={TYPEFORM_ID}
             className="text-[13px] font-medium bg-[#0201FF] hover:bg-[#0101D4] text-white rounded-lg px-4 py-2 transition-colors duration-150"
@@ -120,7 +114,6 @@ export function NavBar() {
               </a>
             ))}
             <div className="pt-2 flex flex-col gap-3">
-              <a href="#" className="text-[14px] text-[#8994A7]">Anmelden</a>
               <PopupButton
                 id={TYPEFORM_ID}
                 onReady={() => setMenuOpen(false)}

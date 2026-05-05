@@ -18,56 +18,84 @@ const TEAM: Member[] = [
     name: "Levin Germann",
     role: "Founder · Sales & Marketing",
     bio: "Steak connoisseur & freetime philosopher. Lifts heavy shit, gets punched in the face for fun. Up at 3AM because mediocrity sleeps in.",
-    photo: null,
+    photo: "/team/levin.jpg",
   },
   {
     id: "fabio",
     name: "Fabio Debus",
     role: "Founder · Product & Consulting",
     bio: "Serial entrepreneur that loves AI, Stoicism, and scaling B2B companies. Calm when everything's on fire. Training for Ironman because regular stress isn't enough.",
-    photo: null,
+    photo: "/team/fabio.jpg",
   },
   {
     id: "jin",
     name: "Jin Yu",
     role: "GTM Engineer",
     bio: "The brain behind all signals, automations and the very best memes. Expert chef. Runs on anime, discipline, and 4AM bursts of genius.",
-    photo: null,
+    photo: "/team/jin.jpg",
   },
   {
     id: "tim",
     name: "Tim Krohm",
-    role: "Head of Consulting",
+    role: "PGM Consultant",
     bio: "Finance brain, consultant instincts. Became managing director of a 60-person consultancy at 24. Boxing keeps the instincts calibrated. Usually in a suit (HR made him dress down for the photo).",
-    photo: null,
+    photo: "/team/tim.jpg",
   },
   {
     id: "franz",
     name: "Franz Rühm",
     role: "Senior GTM Consultant",
     bio: "Started at Daimler, sharpened at SAP, polished at Horváth. Double Degree & Multi-Year Experience in enterprise consulting. Now runs GTM strategy for B2B companies who've outgrown guesswork.",
-    photo: null,
+    photo: "/team/franz.jpg",
   },
   {
     id: "kai",
     name: "Kai Uphues",
     role: "Growth Consultant",
     bio: "Founded at 15. Scouted talent for Ajax Amsterdam, built networks across Swiss and German pro football. Now scouts pipeline opportunities for PREDICT. Same eye for potential, different playing field.",
-    photo: null,
+    photo: "/team/kai.jpg",
   },
   {
     id: "jasmin",
     name: "Jasmin Maurer",
     role: "Backoffice & Customer Support",
     bio: "Professional „doer of things the right way\". Built her own house with her own hands. Brings precision and care to everything she touches. The reason things actually work around here.",
-    photo: null,
+    photo: "/team/jasmin.jpg",
   },
   {
     id: "madelaine",
     name: "Madelaine",
     role: "Backoffice & Customer Support",
     bio: "Has called four continents home and made each one work. Adaptable by nature, meticulous by choice. If reliability had a name, it would be Madelaine.",
-    photo: null,
+    photo: "/team/madelaine.jpg",
+  },
+];
+
+const MILESTONES: { year: string; headline: string; body: string }[] = [
+  {
+    year: "2020",
+    headline: "First Growth Agency — €1–15M in 4 Jahren",
+    body: "Scaled first agency from €1–15M ARR as employees 1 & 5. €24.2M cash collected across PREDICT founders. PE exit by 2023. Worked with 432+ B2B organizations hands on.",
+  },
+  {
+    year: "2024",
+    headline: "PREDICT Foundation",
+    body: "Founded PREDICT as a tech-enabled outbound agency in March 2024. The mission: transform how B2B organizations approach sales.",
+  },
+  {
+    year: "2025",
+    headline: "Bootstrapped from €0–1.8M ARR in 11 Monaten",
+    body: "Rapid growth, 40+ clients like Instaffo, Perspective, DRIP, Randstad. Built out the team. Developed proprietary software (PREDICT OS). Started consulting agencies on the side.",
+  },
+  {
+    year: "2026",
+    headline: "Scaling PREDICT Event AI",
+    body: "Launched PREDICT Event AI as a productized SaaS — turning event spend into measurable pipeline for B2B teams. 60+ clients on track to triple the business in 2026. Built to make every trade-show campaign predictable, before the show starts.",
+  },
+  {
+    year: "2026+",
+    headline: "Vision: PREDICT Ventures",
+    body: "Start Europe's first sales-focused VC fund. Use our own OS and Growth Model to profitably scale investments. Spark the European startup revolution — 2+ unicorns on European soil per year.",
   },
 ];
 
@@ -76,7 +104,7 @@ function Portrait({ name, photo }: { name: string; photo: string | null }) {
   if (!photo || errored) {
     return (
       <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#161B24] via-[#0F1318] to-[#080B10]">
-        <span className="text-[40px] md:text-[48px] font-bold text-[#3A4150] select-none">
+        <span className="text-[56px] md:text-[64px] font-bold text-[#3A4150] select-none tracking-tight">
           {name[0]}
         </span>
       </div>
@@ -88,19 +116,20 @@ function Portrait({ name, photo }: { name: string; photo: string | null }) {
       src={photo}
       alt={name}
       onError={() => setErrored(true)}
-      className="w-full h-full object-cover"
+      loading="lazy"
+      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
     />
   );
 }
 
 function TeamCard({ member }: { member: Member }) {
   return (
-    <article className="rounded-2xl border border-[#1E2530] bg-[#0F1318] overflow-hidden flex">
-      <div className="w-32 sm:w-40 md:w-44 flex-shrink-0 aspect-square">
+    <article className="group rounded-2xl border border-[#1E2530] bg-[#0F1318] overflow-hidden flex flex-col transition-colors hover:border-[#2E3540]">
+      <div className="aspect-[4/3] w-full overflow-hidden bg-[#0B0F14]">
         <Portrait name={member.name} photo={member.photo} />
       </div>
-      <div className="flex-1 p-5 md:p-6 flex flex-col">
-        <h3 className="text-[16px] md:text-[17px] font-bold text-[#EEF2F7] leading-tight mb-0.5">
+      <div className="p-5 md:p-6 flex flex-col">
+        <h3 className="text-[17px] md:text-[18px] font-bold text-[#EEF2F7] leading-tight mb-1 tracking-[-0.01em]">
           {member.name}
         </h3>
         <p className="text-[12px] md:text-[13px] font-medium text-[#7BA3FF] mb-3 tracking-tight">
@@ -155,10 +184,58 @@ export default function TeamPage() {
 
         {/* Team grid */}
         <section className="relative py-16 px-6">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {TEAM.map((member) => (
               <TeamCard key={member.id} member={member} />
             ))}
+          </div>
+        </section>
+
+        {/* Story & Vision timeline */}
+        <section className="relative py-24 px-6">
+          <div className="max-w-3xl mx-auto">
+            <div className="mb-14">
+              <p className="text-[11px] font-semibold tracking-widest uppercase text-[#4D5666] mb-3">
+                Story & Vision
+              </p>
+              <h2 className="text-[32px] md:text-[40px] font-bold tracking-[-0.02em] leading-[1.1] text-[#EEF2F7]">
+                Wo wir herkommen,{" "}
+                <span className="text-[#5D6675]">wo wir hinwollen.</span>
+              </h2>
+            </div>
+
+            <ol className="relative">
+              {/* vertical rail — sits behind the dots */}
+              <div
+                className="absolute left-[60px] md:left-[80px] top-2 w-px bg-[#1E2530]"
+                style={{ height: "calc(100% - 28px)" }}
+                aria-hidden
+              />
+
+              {MILESTONES.map((m, i) => (
+                <li
+                  key={m.year}
+                  className={`relative grid grid-cols-[52px_20px_1fr] md:grid-cols-[72px_20px_1fr] gap-3 md:gap-5 ${
+                    i === MILESTONES.length - 1 ? "" : "pb-10"
+                  }`}
+                >
+                  <p className="text-[13px] md:text-[14px] font-bold text-[#7BA3FF] tabular-nums text-right pt-0.5">
+                    {m.year}
+                  </p>
+                  <div className="flex justify-center pt-1.5">
+                    <span className="block w-3 h-3 rounded-full bg-[#080B10] border-2 border-[#7BA3FF]" />
+                  </div>
+                  <div>
+                    <h3 className="text-[16px] md:text-[17px] font-bold text-[#EEF2F7] mb-1.5 leading-snug tracking-[-0.01em]">
+                      {m.headline}
+                    </h3>
+                    <p className="text-[14px] text-[#8994A7] leading-relaxed">
+                      {m.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 

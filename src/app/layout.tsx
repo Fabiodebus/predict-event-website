@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { PreloadResources } from "@/components/PreloadResources";
 import "./globals.css";
 
 const inter = Inter({
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-[#080B10] text-[#EEF2F7]">
+        <PreloadResources />
         {children}
       </body>
     </html>
